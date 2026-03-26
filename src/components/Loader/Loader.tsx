@@ -1,5 +1,3 @@
 export const Loader: React.FC = () => {
-    return (
-       <span>Loading...</span>
-    );
+  return <span>Loading...</span>;
 };

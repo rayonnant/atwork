@@ -17,10 +17,7 @@ export default defineConfig([
     ],
     languageOptions: { ecmaVersion: 2020, globals: globals.browser },
     rules: {
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { destructuredArrayIgnorePattern: '^_' },
-      ],
+      '@typescript-eslint/no-unused-vars': ['error', { destructuredArrayIgnorePattern: '^_' }],
       'no-unused-vars': 'off',
     },
   },

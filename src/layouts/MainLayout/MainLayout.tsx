@@ -4,16 +4,17 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 export const MainLayout: React.FC = () => {
-    return (
-        <ErrorBoundary>
-            <Suspense
-                fallback={
-                    <div>
-                        <Loader />
-                    </div>
-                }>
-                <Outlet />
-            </Suspense>
-        </ErrorBoundary>
-    );
+  return (
+    <ErrorBoundary>
+      <Suspense
+        fallback={
+          <div>
+            <Loader />
+          </div>
+        }
+      >
+        <Outlet />
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
