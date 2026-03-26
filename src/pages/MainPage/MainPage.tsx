@@ -1,5 +1,8 @@
-const MainPage = () => {
-    return (<div>Main Page</div>)
-}
+import {MainHeader} from "@components/MainHeader/MainHeader.tsx";
 
-export default MainPage
+export const MainPage: React.FC = () => {
+    return (<div>
+        <MainHeader/>
+        <h1>Main Page</h1>
+    </div>)
+}

@@ -1,1 +1,1 @@
-import * from './ProfilePage'
+export * from './ProfilePage'
