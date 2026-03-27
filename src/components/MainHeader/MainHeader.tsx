@@ -9,7 +9,7 @@ import styles from './style.module.scss';
 export const MainHeader = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.header__wrapper}>
+      <div className={`${styles.header__wrapper} wrapper`}>
         <Link to='/'>
           <img src={logoImage} alt='Logo At-Work' className={styles.header__logo} />
         </Link>

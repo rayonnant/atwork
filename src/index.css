@@ -72,3 +72,41 @@ ol {
   list-style: none;
   padding: 0;
 }
+
+
+.wrapper {
+  width: 100%;
+  max-width: 344px;
+  margin: 0 auto;
+}
+
+
+@media (min-width: 560px) {
+    .wrapper {
+      max-width: 526px;
+    }
+}
+
+@media (min-width: 740px) {
+    .wrapper {
+      max-width: 708px;
+    }
+}
+
+@media (min-width: 922px) {
+    .wrapper {
+      max-width: 890px;
+    }
+}
+
+@media (min-width: 1105px) {
+    .wrapper {
+      max-width: 1072px;
+    }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    max-width: 1160px;
+  }
+}
