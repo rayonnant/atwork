@@ -11,6 +11,7 @@ export default defineConfig({
       '@components': `${root}/components`,
       '@pages': `${root}/pages`,
       '@store': `${root}/store`,
+      '@utils': `${root}/utils`,
       '@': root,
     },
   },
