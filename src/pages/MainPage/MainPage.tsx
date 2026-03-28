@@ -1,40 +1,53 @@
+import { cardsStore } from '@/store/cardsStore.ts';
 import styles from './MainPage.module.scss';
-import {MainHeader} from '@components/MainHeader';
-import {Card} from "@components/Card";
+import { MainHeader } from '@components/MainHeader';
+import { Card } from '@components/Card';
 
 export const MainPage: React.FC = () => {
-    //todo: убрать когда добавится API
-    const [name, company, city] = ['Ivan', 'At-Work', 'city']
-    return (
-        <>
-            <MainHeader/>
-            <main className={styles.main}>
-                <div className="wrapper">
-                    <section className={styles.cards__section}>
-                        <h2 className={styles.cards__title}>Активные</h2>
-                        <ul className={styles.cards__list} role="list">
-                            <Card name={name} company={company} city={city} isArchive={false} key="active-1"/>
-                            <Card name={name} company={company} city={city} isArchive={false} key="active-2"/>
-                            <Card name={name} company={company} city={city} isArchive={false} key="active-3"/>
-                            <Card name={name} company={company} city={city} isArchive={false} key="active-4"/>
-                            <Card name={name} company={company} city={city} isArchive={false} key="active-5"/>
-                            <Card name={name} company={company} city={city} isArchive={false} key="active-6"/>
-                        </ul>
-                    </section>
+  //todo: здесь добавить получение данных через API
+  const { cards } = cardsStore();
 
-                    <section className={`${styles.cards__section} ${styles['cards__section--archive']}`}>
-                        <h2 className={styles.cards__title}>Архив</h2>
-                        <ul className={styles.cards__list} role="list">
-                            <Card name={name} company={company} city={city} isArchive={true} key="archive-1"/>
-                            <Card name={name} company={company} city={city} isArchive={true} key="archive-2"/>
-                            <Card name={name} company={company} city={city} isArchive={true} key="archive-3"/>
-                            <Card name={name} company={company} city={city} isArchive={true} key="archive-4"/>
-                            <Card name={name} company={company} city={city} isArchive={true} key="archive-5"/>
-                            <Card name={name} company={company} city={city} isArchive={true} key="archive-6"/>
-                        </ul>
-                    </section>
-                </div>
-            </main>
-        </>
-    );
+  const activeCards = cards.filter(item => !item.isArchive);
+  const archivedCards = cards.filter(item => item.isArchive);
+
+  return (
+    <>
+      <MainHeader />
+      <main className={styles.main}>
+        <div className='wrapper'>
+          <section className={styles.cards__section}>
+            <h2 className={styles.cards__title}>Активные</h2>
+            <ul className={styles.cards__list} role='list'>
+              {activeCards.map(item => (
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  company={item.company}
+                  city={item.city}
+                  isArchive={item.isArchive}
+                />
+              ))}
+            </ul>
+          </section>
+
+          <section className={`${styles.cards__section} ${styles['cards__section--archive']}`}>
+            <h2 className={styles.cards__title}>Архив</h2>
+            <ul className={styles.cards__list} role='list'>
+              {archivedCards.map(item => (
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  company={item.company}
+                  city={item.city}
+                  isArchive={item.isArchive}
+                />
+              ))}
+            </ul>
+          </section>
+        </div>
+      </main>
+    </>
+  );
 };

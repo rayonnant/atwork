@@ -10,6 +10,7 @@ export default defineConfig({
     alias: {
       '@components': `${root}/components`,
       '@pages': `${root}/pages`,
+      '@store': `${root}/store`,
       '@': root,
     },
   },

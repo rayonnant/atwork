@@ -36,12 +36,13 @@
     border-radius: 16px;
     gap: 16px;
 
-    &:nth-child(n+3) {
+    &:nth-child(n + 3) {
       margin-top: 20px;
     }
   }
 
-  &__photo-wrapper, &__photo {
+  &__photo-wrapper,
+  &__photo {
     width: 130px;
     height: 120px;
     border-radius: 8px;
@@ -99,7 +100,6 @@
         &__city {
           color: var(--color04);
         }
-
       }
     }
   }
@@ -110,7 +110,7 @@
     &:nth-child(n) {
       margin-top: 16px;
     }
-    &:nth-child(n+4) {
+    &:nth-child(n + 4) {
       margin-top: 20px;
     }
   }
@@ -121,7 +121,7 @@
     &:nth-child(n) {
       margin-top: 16px;
     }
-    &:nth-child(n+5) {
+    &:nth-child(n + 5) {
       margin-top: 20px;
     }
   }
@@ -132,7 +132,7 @@
     &:nth-child(n) {
       margin-top: 16px;
     }
-    &:nth-child(n+6) {
+    &:nth-child(n + 6) {
       margin-top: 20px;
     }
   }
@@ -143,7 +143,7 @@
     &:nth-child(n) {
       margin-top: 16px;
     }
-    &:nth-child(n+7) {
+    &:nth-child(n + 7) {
       margin-top: 20px;
     }
   }
@@ -164,11 +164,12 @@
       &:nth-child(n) {
         margin-top: 28px;
       }
-      &:nth-child(n+4) {
+      &:nth-child(n + 4) {
         margin-top: 32px;
       }
     }
-    &__photo-wrapper, &__photo {
+    &__photo-wrapper,
+    &__photo {
       width: 112px;
       height: 120px;
     }
@@ -195,4 +196,3 @@
     }
   }
 }
-

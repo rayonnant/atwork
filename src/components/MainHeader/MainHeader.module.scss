@@ -31,27 +31,27 @@
       display: none;
       object-fit: contain;
 
-        &--favorite {
-          width: 12.8px;
-          height: 11.74px;
-          margin-left: 5.6px;
-          margin-right: 5.6px;
+      &--favorite {
+        width: 12.8px;
+        height: 11.74px;
+        margin-left: 5.6px;
+        margin-right: 5.6px;
 
-          path {
-            stroke: var(--color02);
-          }
+        path {
+          stroke: var(--color02);
         }
+      }
 
-        &--notification {
-          width: 12.4px;
-          height: 13.6px;
-          margin-left: 5.88px;
-          margin-right: 5.88px;
+      &--notification {
+        width: 12.4px;
+        height: 13.6px;
+        margin-left: 5.88px;
+        margin-right: 5.88px;
 
-          path {
-            fill: var(--color02);
-          }
+        path {
+          fill: var(--color02);
         }
+      }
     }
   }
 
@@ -101,4 +101,3 @@
     }
   }
 }
-

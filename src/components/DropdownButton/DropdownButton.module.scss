@@ -33,7 +33,7 @@
     fill: var(--color-accent);
   }
 
-  &:active &__icon path {
+  &--active &__icon path {
     fill: var(--color02);
   }
 }
