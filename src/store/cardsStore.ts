@@ -19,7 +19,7 @@ interface CardsStore {
 
 export const cardsStore = create<CardsStore>(set => ({
   cards: [
-    { id: 1, name: 'Анна', company: 'Компания 1', city: 'Москва', isArchive: false },
+    { id: 1, name: 'WowChika', company: 'Компания 1', city: 'Москва', isArchive: false },
     { id: 2, name: 'Максим', company: 'Компания 2', city: 'Санкт‑Петербург', isArchive: false },
     { id: 3, name: 'Елена', company: 'Компания 3', city: 'Санкт‑Петербург', isArchive: false },
     { id: 4, name: 'Дмитрий', company: 'Компания 4', city: 'Санкт‑Петербург', isArchive: false },

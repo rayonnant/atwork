@@ -11,12 +11,6 @@
   margin-bottom: 13px;
 
   &__icon {
-    &--small {
-      display: block;
-    }
-    &--large {
-      display: none;
-    }
    &-container {
      height: 24px;
      width: 24px;
@@ -26,6 +20,13 @@
      margin-left: 8px;
      margin-right: 4px;
    }
+
+    &--small {
+      display: block;
+    }
+    &--large {
+      display: none;
+    }
   }
 
   &__text {

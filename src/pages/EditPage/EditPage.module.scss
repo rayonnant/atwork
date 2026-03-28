@@ -3,16 +3,200 @@
   padding-right: 16px;
 }
 
-.settings {
-  &__section {
-    margin-top: 20px;
+.edit-page {
+  &__content {
+    margin-top: 33px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    column-gap: 0;
+    align-items: center;
   }
 }
 
+.settings {
+  &__section {
+    padding: 28px;
+    border-radius: 16px;
+    background-color: var(--color06);
+    min-width: 343px;
+    width: 343px;
+  }
+  &__photo {
+    border-radius: 8px;
+    width: 287px;
+    height: 187px;
+    object-fit: cover;
+    &-wrapper {
+      border-radius: 8px;
+    }
+  }
+
+  &__options {
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+      font-family: var(--manrope), sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--color04);
+      margin-bottom: 17.8px;
+      color: var(--color03);
+      cursor: pointer;
+      transition: color 0.3s ease-out;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        color: var(--color-accent);
+        transition: color 0.3s ease-out;
+      }
+
+      &--active {
+        color: var(--color01);
+        cursor: default;
+        font-weight: 600;
+        &:hover {
+          color: var(--color01);
+        }
+      }
+    }
+  }
+}
+
+.profile-data {
+  &__section {
+    padding: 28px;
+    border-radius: 16px;
+    background-color: var(--color06);
+    width: 343px;
+  }
+  &__title {
+    font-family: var(--manrope), sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color01);
+    padding-bottom: 13.5px;
+    border-bottom: 1px solid var(--color04);
+    //height: 49px;
+    margin-top: -1px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    margin-top: 20px;
+    font-family: var(--manrope), sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 22px;
+    max-width: 420px;
+  }
+  &__input {
+    margin-top: 11px;
+    height: 42px;
+    font-family: var(--manrope), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color01);
+    border-radius: 50px;
+    border: 2px solid var(--color04);
+    outline: none;
+    max-width: 420px;
+    padding: 11.5px 8px 11.5px 15px;
+  }
+  &__submit {
+    margin-top: 24px;
+    width: 287px;
+    height: 44px;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--color01);
+    color: var(--color06);
+    font-family: var(--manrope), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 923px) {
+  .edit-page {
+    &__content {
+      margin-top: 24px;
+      flex-direction: row;
+      row-gap: 0;
+      column-gap: 40px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+
+}
+
 @media (min-width: 1400px) {
+  .edit-page {
+    &__content {
+      margin-top: 44px;
+      flex-direction: row;
+      row-gap: 0;
+      column-gap: 40px;
+    }
+  }
+
   .settings {
     &__section {
-      margin-top: 24px;
+      padding: 40px;
+      width: 360px;
+    }
+    &__photo {
+      width: 280px;
+      height: 485px;
+      object-fit: cover;
+    }
+
+    &__options {
+      margin-top: 40px;
+
+      &__item {
+        font-size: 1rem;
+        padding-bottom: 10px;
+        margin-bottom: 22.8px;
+      }
+    }
+  }
+
+  .profile-data {
+    &__section {
+      padding: 40px;
+      width: 100%;
+      max-width: 760px;
+    }
+    &__label {
+      font-size: 1.12rem;
+      margin-top: 22.5px;
+      height: 25px;
+    }
+    &__input {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 14px;
+      font-size: 1rem;
+    }
+    &__submit {
+      margin-top: 32px;
+      width: 170px;
+      height: 46px;
+      font-size: 1rem;
     }
   }
 }
