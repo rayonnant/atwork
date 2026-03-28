@@ -7,9 +7,9 @@ const MainPage = lazy(() =>
     default: module.MainPage,
   })),
 );
-const ProfilePage = lazy(() =>
-  import('../pages/ProfilePage/ProfilePage').then(module => ({
-    default: module.ProfilePage,
+const EditPage = lazy(() =>
+  import('../pages/EditPage/EditPage').then(module => ({
+    default: module.EditPage,
   })),
 );
 const NotFoundPage = lazy(() =>
@@ -23,7 +23,7 @@ export const AppRouter: React.FC = () => {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path='/' element={<MainPage />} />
-        <Route path='/profile/:id' element={<ProfilePage />} />
+        <Route path='/edit/:id' element={<EditPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Route>
     </Routes>

@@ -2,14 +2,19 @@ import styles from "./DropdownButton.module.scss";
 
 interface DropdownButtonProps {
     ariaLabel?: string;
+    onClick?: () => void;
 }
 
-export const DropdownButton: React.FC<DropdownButtonProps> = ({ ariaLabel = "Открыть опции"}) => {
+export const DropdownButton: React.FC<DropdownButtonProps> = ({ ariaLabel = "Открыть опции", onClick = undefined }) => {
     return (
         <button
             className={styles['dropdown-button']}
             aria-label={ariaLabel}
             aria-haspopup="true"
+            onMouseDown={(e) => {
+                e.stopPropagation();
+                onClick?.();
+            }}
         >
             <svg className={`${styles['dropdown-button__icon']} ${styles['dropdown-button__icon--small']}`} width="3" height="10" viewBox="0 0 3 10" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
