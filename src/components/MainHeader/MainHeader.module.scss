@@ -29,16 +29,17 @@
 
     &-icon {
       display: none;
-
-      &-img {
-        object-fit: contain;
-        filter: brightness(0) saturate(100%) invert(35%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(91%) contrast(92%);
+      object-fit: contain;
 
         &--favorite {
           width: 12.8px;
           height: 11.74px;
           margin-left: 5.6px;
           margin-right: 5.6px;
+
+          path {
+            stroke: var(--color02);
+          }
         }
 
         &--notification {
@@ -46,8 +47,11 @@
           height: 13.6px;
           margin-left: 5.88px;
           margin-right: 5.88px;
+
+          path {
+            fill: var(--color02);
+          }
         }
-      }
     }
   }
 

@@ -1,4 +1,4 @@
-import styles from "./style.module.scss";
+import styles from "./DropdownButton.module.scss";
 
 interface DropdownButtonProps {
     ariaLabel?: string;
