@@ -35,10 +35,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             <div className={styles['error-boundary__content']}>
               <h2 className={styles['error-boundary__title']}>Упс! Что-то пошло не так.</h2>
 
-              <button
-                className={styles['error-boundary__button']}
-                onClick={() => window.location.reload()}
-              >
+              <button className={styles['error-boundary__button']} onClick={() => window.location.reload()}>
                 Попробовать снова
               </button>
             </div>

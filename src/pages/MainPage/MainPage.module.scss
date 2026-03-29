@@ -58,18 +58,18 @@
     width: 130px;
   }
 
-    &__name {
-      font-family: var(--manrope), sans-serif;
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--color-accent);
-      cursor: default;
-      width: 100%;
-      max-width: 110px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  &__name {
+    font-family: var(--manrope), sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    cursor: default;
+    width: 100%;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   &__company {
     margin-top: 4px;

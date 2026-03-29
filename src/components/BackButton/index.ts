@@ -1,1 +1,1 @@
-export * from "@components/BackButton/BackButton";
+export * from '@components/BackButton/BackButton';
