@@ -21,8 +21,11 @@ export const EditPage: React.FC = () => {
     handleSubmit,
     setError,
     setValue,
+    watch,
     formState: { errors },
   } = useForm<FormSchema>();
+
+  const watchAllFields = watch();
 
   useEffect(() => {
     if (user) {
@@ -103,73 +106,175 @@ export const EditPage: React.FC = () => {
               <label htmlFor='name' className={styles['profile-data__label']}>
                 Имя
               </label>
-              <input
-                id='name'
-                type='text'
-                placeholder='Введите имя'
-                className={styles['profile-data__input']}
-                {...register('name')}
-              />
+              <div className={styles['profile-data__input-wrapper']}>
+                <input
+                  id='name'
+                  type='text'
+                  placeholder='Введите имя'
+                  className={styles['profile-data__input']}
+                  {...register('name')}
+                />
+                {watchAllFields.name && (
+                  <button
+                    type='button'
+                    className={styles['profile-data__clear-button']}
+                    onClick={() => setValue('name', '')}
+                    aria-label='Clear input'
+                  >
+                    <svg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M8.3514 1.28033C8.64429 0.987437 8.64429 0.512563 8.3514 0.21967C8.05851 -0.0732233 7.58363 -0.0732233 7.29074 0.21967L4.28554 3.22487L1.28034 0.21967C0.987446 -0.0732227 0.512572 -0.073223 0.219679 0.21967C-0.073214 0.512563 -0.0732138 0.987437 0.219679 1.28033L3.22488 4.28553L0.21967 7.29074C-0.0732231 7.58363 -0.0732234 8.0585 0.21967 8.3514C0.512563 8.64429 0.987437 8.64429 1.28033 8.3514L4.28554 5.34619L7.29075 8.3514C7.58364 8.64429 8.05851 8.64429 8.35141 8.3514C8.6443 8.05851 8.6443 7.58363 8.35141 7.29074L5.3462 4.28553L8.3514 1.28033Z'
+                        fill='#161616'
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
               {errors.name && <span className={styles['profile-data__error']}>{errors.name.message}</span>}
 
               <label htmlFor='nickname' className={styles['profile-data__label']}>
                 Никнейм
               </label>
-              <input
-                id='nickname'
-                type='text'
-                placeholder='Введите никнейм'
-                className={styles['profile-data__input']}
-                {...register('nickname')}
-              />
+              <div className={styles['profile-data__input-wrapper']}>
+                <input
+                  id='nickname'
+                  type='text'
+                  placeholder='Введите никнейм'
+                  className={styles['profile-data__input']}
+                  {...register('nickname')}
+                />
+                {watchAllFields.nickname && (
+                  <button
+                    type='button'
+                    className={styles['profile-data__clear-button']}
+                    onClick={() => setValue('nickname', '')}
+                    aria-label='Clear input'
+                  >
+                    <svg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M8.3514 1.28033C8.64429 0.987437 8.64429 0.512563 8.3514 0.21967C8.05851 -0.0732233 7.58363 -0.0732233 7.29074 0.21967L4.28554 3.22487L1.28034 0.21967C0.987446 -0.0732227 0.512572 -0.073223 0.219679 0.21967C-0.073214 0.512563 -0.0732138 0.987437 0.219679 1.28033L3.22488 4.28553L0.21967 7.29074C-0.0732231 7.58363 -0.0732234 8.0585 0.21967 8.3514C0.512563 8.64429 0.987437 8.64429 1.28033 8.3514L4.28554 5.34619L7.29075 8.3514C7.58364 8.64429 8.05851 8.64429 8.35141 8.3514C8.6443 8.05851 8.6443 7.58363 8.35141 7.29074L5.3462 4.28553L8.3514 1.28033Z'
+                        fill='#161616'
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
               {errors.nickname && <span className={styles['profile-data__error']}>{errors.nickname.message}</span>}
 
               <label htmlFor='email' className={styles['profile-data__label']}>
                 Почта
               </label>
-              <input
-                id='email'
-                type='email'
-                placeholder='Введите email'
-                className={styles['profile-data__input']}
-                {...register('email')}
-              />
+              <div className={styles['profile-data__input-wrapper']}>
+                <input
+                  id='email'
+                  type='email'
+                  placeholder='Введите email'
+                  className={styles['profile-data__input']}
+                  {...register('email')}
+                />
+                {watchAllFields.email && (
+                  <button
+                    type='button'
+                    className={styles['profile-data__clear-button']}
+                    onClick={() => setValue('email', '')}
+                    aria-label='Clear input'
+                  >
+                    <svg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M8.3514 1.28033C8.64429 0.987437 8.64429 0.512563 8.3514 0.21967C8.05851 -0.0732233 7.58363 -0.0732233 7.29074 0.21967L4.28554 3.22487L1.28034 0.21967C0.987446 -0.0732227 0.512572 -0.073223 0.219679 0.21967C-0.073214 0.512563 -0.0732138 0.987437 0.219679 1.28033L3.22488 4.28553L0.21967 7.29074C-0.0732231 7.58363 -0.0732234 8.0585 0.21967 8.3514C0.512563 8.64429 0.987437 8.64429 1.28033 8.3514L4.28554 5.34619L7.29075 8.3514C7.58364 8.64429 8.05851 8.64429 8.35141 8.3514C8.6443 8.05851 8.6443 7.58363 8.35141 7.29074L5.3462 4.28553L8.3514 1.28033Z'
+                        fill='#161616'
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
               {errors.email && <span className={styles['profile-data__error']}>{errors.email.message}</span>}
 
               <label htmlFor='city' className={styles['profile-data__label']}>
                 Город
               </label>
-              <input
-                id='city'
-                type='text'
-                placeholder='Введите город'
-                className={styles['profile-data__input']}
-                {...register('city')}
-              />
+              <div className={styles['profile-data__input-wrapper']}>
+                <input
+                  id='city'
+                  type='text'
+                  placeholder='Введите город'
+                  className={styles['profile-data__input']}
+                  {...register('city')}
+                />
+                {watchAllFields.city && (
+                  <button
+                    type='button'
+                    className={styles['profile-data__clear-button']}
+                    onClick={() => setValue('city', '')}
+                    aria-label='Clear input'
+                  >
+                    <svg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M8.3514 1.28033C8.64429 0.987437 8.64429 0.512563 8.3514 0.21967C8.05851 -0.0732233 7.58363 -0.0732233 7.29074 0.21967L4.28554 3.22487L1.28034 0.21967C0.987446 -0.0732227 0.512572 -0.073223 0.219679 0.21967C-0.073214 0.512563 -0.0732138 0.987437 0.219679 1.28033L3.22488 4.28553L0.21967 7.29074C-0.0732231 7.58363 -0.0732234 8.0585 0.21967 8.3514C0.512563 8.64429 0.987437 8.64429 1.28033 8.3514L4.28554 5.34619L7.29075 8.3514C7.58364 8.64429 8.05851 8.64429 8.35141 8.3514C8.6443 8.05851 8.6443 7.58363 8.35141 7.29074L5.3462 4.28553L8.3514 1.28033Z'
+                        fill='#161616'
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
               {errors.city && <span className={styles['profile-data__error']}>{errors.city.message}</span>}
 
               <label htmlFor='phone' className={styles['profile-data__label']}>
                 Телефон
               </label>
-              <input
-                id='phone'
-                type='text'
-                placeholder='Введите телефон'
-                className={styles['profile-data__input']}
-                {...register('phone')}
-              />
+              <div className={styles['profile-data__input-wrapper']}>
+                <input
+                  id='phone'
+                  type='text'
+                  placeholder='Введите телефон'
+                  className={styles['profile-data__input']}
+                  {...register('phone')}
+                />
+                {watchAllFields.phone && (
+                  <button
+                    type='button'
+                    className={styles['profile-data__clear-button']}
+                    onClick={() => setValue('phone', '')}
+                    aria-label='Clear input'
+                  >
+                    <svg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M8.3514 1.28033C8.64429 0.987437 8.64429 0.512563 8.3514 0.21967C8.05851 -0.0732233 7.58363 -0.0732233 7.29074 0.21967L4.28554 3.22487L1.28034 0.21967C0.987446 -0.0732227 0.512572 -0.073223 0.219679 0.21967C-0.073214 0.512563 -0.0732138 0.987437 0.219679 1.28033L3.22488 4.28553L0.21967 7.29074C-0.0732231 7.58363 -0.0732234 8.0585 0.21967 8.3514C0.512563 8.64429 0.987437 8.64429 1.28033 8.3514L4.28554 5.34619L7.29075 8.3514C7.58364 8.64429 8.05851 8.64429 8.35141 8.3514C8.6443 8.05851 8.6443 7.58363 8.35141 7.29074L5.3462 4.28553L8.3514 1.28033Z'
+                        fill='#161616'
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
               {errors.phone && <span className={styles['profile-data__error']}>{errors.phone.message}</span>}
 
               <label htmlFor='companyName' className={styles['profile-data__label']}>
                 Название компании
               </label>
-              <input
-                id='companyName'
-                type='text'
-                placeholder='Введите название компании'
-                className={styles['profile-data__input']}
-                {...register('companyName')}
-              />
+              <div className={styles['profile-data__input-wrapper']}>
+                <input
+                  id='companyName'
+                  type='text'
+                  placeholder='Введите название компании'
+                  className={styles['profile-data__input']}
+                  {...register('companyName')}
+                />
+                {watchAllFields.companyName && (
+                  <button
+                    type='button'
+                    className={styles['profile-data__clear-button']}
+                    onClick={() => setValue('companyName', '')}
+                    aria-label='Clear input'
+                  >
+                    <svg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M8.3514 1.28033C8.64429 0.987437 8.64429 0.512563 8.3514 0.21967C8.05851 -0.0732233 7.58363 -0.0732233 7.29074 0.21967L4.28554 3.22487L1.28034 0.21967C0.987446 -0.0732227 0.512572 -0.073223 0.219679 0.21967C-0.073214 0.512563 -0.0732138 0.987437 0.219679 1.28033L3.22488 4.28553L0.21967 7.29074C-0.0732231 7.58363 -0.0732234 8.0585 0.21967 8.3514C0.512563 8.64429 0.987437 8.64429 1.28033 8.3514L4.28554 5.34619L7.29075 8.3514C7.58364 8.64429 8.05851 8.64429 8.35141 8.3514C8.6443 8.05851 8.6443 7.58363 8.35141 7.29074L5.3462 4.28553L8.3514 1.28033Z'
+                        fill='#161616'
+                      />
+                    </svg>
+                  </button>
+                )}
+              </div>
               {errors.companyName && (
                 <span className={styles['profile-data__error']}>{errors.companyName.message}</span>
               )}
