@@ -10,9 +10,12 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { cardsStore } from '@/store/cardsStore.ts';
 import { useEffect } from 'react';
+import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
+import { useFetchUsers } from '@/shared/hooks/useFetchUsers.ts';
 
 export const EditPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  useFetchUsers();
   const { cards } = cardsStore();
   const user = cards.find(c => c.id === Number(id));
 
@@ -27,6 +30,8 @@ export const EditPage: React.FC = () => {
 
   const watchAllFields = watch();
 
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
   useEffect(() => {
     if (user) {
       setValue('name', user.name);
@@ -37,6 +42,10 @@ export const EditPage: React.FC = () => {
       setValue('companyName', user.companyName);
     }
   }, [user, setValue]);
+
+  if (!user) {
+    return <NotFoundPage />;
+  }
 
   const handleSuccess = () => {
     setIsPopupVisible(true);
@@ -76,8 +85,6 @@ export const EditPage: React.FC = () => {
     console.log(parsed.data);
     handleSuccess();
   };
-
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   return (
     <main className={styles.main}>

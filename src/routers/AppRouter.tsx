@@ -1,6 +1,6 @@
 import { MainLayout } from '@/layouts/MainLayout';
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
 
 const MainPage = lazy(() =>
   import('../pages/MainPage/MainPage').then(module => ({
@@ -18,14 +18,34 @@ const NotFoundPage = lazy(() =>
   })),
 );
 
-export const AppRouter: React.FC = () => {
-  return (
-    <Routes>
-      <Route element={<MainLayout />}>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/edit/:id' element={<EditPage />} />
-        <Route path='*' element={<NotFoundPage />} />
-      </Route>
-    </Routes>
-  );
-};
+export const AppRouter = createBrowserRouter([
+  {
+    element: <MainLayout />,
+    children: [
+      {
+        path: '/',
+        element: (
+          <Suspense fallback={null}>
+            <MainPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/edit/:id',
+        element: (
+          <Suspense fallback={null}>
+            <EditPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: '*',
+        element: (
+          <Suspense fallback={null}>
+            <NotFoundPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+]);
