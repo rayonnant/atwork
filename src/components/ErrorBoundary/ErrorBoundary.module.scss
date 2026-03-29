@@ -1,20 +1,9 @@
+@use '../../index.scss' as *;
+
 .error-boundary {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--color05);
-  display: flex;
-  flex-direction: column;
-  padding-top: 16px;
-  padding-bottom: 40px;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
-    text-align: center;
-  }
+  @include common-error-container;
 
   &__title {
     font-family: var(--manrope), sans-serif;
@@ -26,25 +15,7 @@
   }
 
   &__button {
-    width: 287px;
-    height: 44px;
-    outline: none;
-    border: none;
-    border-radius: 50px;
-    background-color: var(--color01);
-    color: var(--color06);
-    font-family: var(--manrope), sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.3s ease-out;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.8;
-    }
+    @include common-button;
   }
 }
 
@@ -59,12 +30,6 @@
     &__title {
       font-size: 2rem;
       margin-bottom: 40px;
-    }
-
-    &__button {
-      width: 210px;
-      height: 46px;
-      font-size: 1rem;
     }
   }
 }

@@ -1,3 +1,4 @@
+@use '../../index.scss' as *;
 .main {
   padding-left: 16px;
   padding-right: 16px;
@@ -83,7 +84,6 @@
     color: var(--color01);
     padding-bottom: 13.5px;
     border-bottom: 1px solid var(--color04);
-    //height: 49px;
     margin-top: -1px;
   }
   &__form {
@@ -112,20 +112,8 @@
     padding: 11.5px 8px 11.5px 15px;
   }
   &__submit {
+    @include common-button;
     margin-top: 24px;
-    width: 287px;
-    height: 44px;
-    outline: none;
-    border: none;
-    border-radius: 50px;
-    background-color: var(--color01);
-    color: var(--color06);
-    font-family: var(--manrope), sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 
@@ -194,9 +182,6 @@
     }
     &__submit {
       margin-top: 32px;
-      width: 170px;
-      height: 46px;
-      font-size: 1rem;
     }
   }
 }
