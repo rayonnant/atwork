@@ -58,13 +58,18 @@
     width: 130px;
   }
 
-  &__name {
-    font-family: var(--manrope), sans-serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    cursor: default;
-  }
+    &__name {
+      font-family: var(--manrope), sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      cursor: default;
+      width: 100%;
+      max-width: 110px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
   &__company {
     margin-top: 4px;
@@ -73,6 +78,11 @@
     font-weight: 600;
     color: var(--color02);
     cursor: default;
+    width: 100%;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__city {
@@ -82,6 +92,11 @@
     font-weight: 600;
     color: var(--color03);
     cursor: default;
+    width: 100%;
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__section {
@@ -182,17 +197,29 @@
 
     &__name {
       font-size: 1.25rem;
+      max-width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &__company {
       font-size: 1rem;
       font-weight: 500;
+      max-width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &__city {
       margin-top: auto;
       font-size: 0.875rem;
       font-weight: 500;
+      max-width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }

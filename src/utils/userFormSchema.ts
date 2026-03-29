@@ -18,7 +18,10 @@ const formSchema = z.object({
         .min(2, { message: "Город должен быть от 2 до 64 символов" })
         .max(64, { message: "Город должен быть от 2 до 64 символов" }),
 
-    phone: z.string().min(1, { message: "Телефон обязателен" }),
+    phone: z
+        .string()
+        .min(1, { message: "Телефон обязателен" })
+        .regex(/^[0-9]+$/, { message: "Телефон должен состоять из цифр" }),
 
     companyName: z
         .string()

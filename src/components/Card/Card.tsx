@@ -49,9 +49,15 @@ export const Card: React.FC<CardProps> = ({ id, name = '', company = '', city = 
         <img src={manPNG} alt='Photo' className={styles.cards__photo} />
       </picture>
       <div className={styles.cards__content}>
-        <span className={styles.cards__name}>{name}</span>
-        <span className={styles.cards__company}>{company}</span>
-        <span className={styles.cards__city}>{city}</span>
+        <span className={styles.cards__name} title={name}>
+          {name}
+        </span>
+        <span className={styles.cards__company} title={company}>
+          {company}
+        </span>
+        <span className={styles.cards__city} title={city}>
+          {city}
+        </span>
         <DropdownButton ariaLabel={`Опции для ${name} из ${company}`} onClick={handleDropdownButtonClick} cardId={id} />
         <Dropdown ref={dropdownRef} isArchive={isArchive} cardId={id} />
       </div>
