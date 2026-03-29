@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-const phonePattern = /^[0-9]*$/;
-
 const formSchema = z.object({
     name: z
         .string()
@@ -20,7 +18,7 @@ const formSchema = z.object({
         .min(2, { message: "Город должен быть от 2 до 64 символов" })
         .max(64, { message: "Город должен быть от 2 до 64 символов" }),
 
-    phone: z.string().regex(phonePattern, { message: "Телефон должен содержать только цифры" }),
+    phone: z.string().min(1, { message: "Телефон обязателен" }),
 
     companyName: z
         .string()

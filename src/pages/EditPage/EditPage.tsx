@@ -7,13 +7,33 @@ import {BackButton} from "@components/BackButton/BackButton.tsx";
 import {Popup} from "@components/Popup";
 import {useState} from "react";
 
+import { useParams } from 'react-router-dom';
+import { cardsStore } from '@/store/cardsStore.ts';
+import { useEffect } from 'react';
+
 export const EditPage: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
+    const { cards } = cardsStore();
+    const user = cards.find(c => c.id === Number(id));
+
     const {
         register,
         handleSubmit,
         setError,
+        setValue,
         formState: {errors}
     } = useForm<FormSchema>();
+
+    useEffect(() => {
+        if (user) {
+            setValue('name', user.name);
+            setValue('nickname', user.username);
+            setValue('email', user.email);
+            setValue('city', user.city);
+            setValue('phone', user.phone);
+            setValue('companyName', user.companyName);
+        }
+    }, [user, setValue]);
 
     const handleSuccess = () => {
         setIsPopupVisible(true);
@@ -30,6 +50,20 @@ export const EditPage: React.FC = () => {
                 });
             });
             return;
+        }
+
+        if (user) {
+            cardsStore.getState().setCards(
+                cards.map(c => c.id === user.id ? {
+                    ...c,
+                    name: parsed.data.name,
+                    username: parsed.data.nickname,
+                    email: parsed.data.email,
+                    city: parsed.data.city,
+                    phone: parsed.data.phone,
+                    companyName: parsed.data.companyName
+                } : c)
+            );
         }
 
         console.log(parsed.data);
