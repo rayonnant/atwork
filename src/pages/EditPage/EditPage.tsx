@@ -4,6 +4,8 @@ import manPNG from "@/assets/images/man.png";
 import {useForm} from "react-hook-form";
 import {formSchema, type FormSchema} from "@/utils/userFormSchema";
 import {BackButton} from "@components/BackButton/BackButton.tsx";
+import {Popup} from "@components/Popup";
+import {useState} from "react";
 
 export const EditPage: React.FC = () => {
     const {
@@ -12,6 +14,11 @@ export const EditPage: React.FC = () => {
         setError,
         formState: {errors}
     } = useForm<FormSchema>();
+
+    const handleSuccess = () => {
+        setIsPopupVisible(true);
+        setTimeout(() => setIsPopupVisible(false), 3000);
+    };
 
     const onSubmit = (data: unknown) => {
         const parsed = formSchema.safeParse(data);
@@ -26,12 +33,19 @@ export const EditPage: React.FC = () => {
         }
 
         console.log(parsed.data);
+        handleSuccess()
     };
+
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
 
     return (
         <main className={styles.main}>
             <div className='wrapper'>
                 <BackButton/>
+                <Popup
+                    onClose={() => setIsPopupVisible(false)}
+                    isOpen={isPopupVisible}
+                />
                 <div className={styles['edit-page__content']}>
                     <section className={styles['settings__section']}>
                             <picture className={styles['settings__photo-wrapper']}>

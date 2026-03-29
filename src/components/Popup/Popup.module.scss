@@ -1,0 +1,82 @@
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+
+  &--visible {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgb(22, 22, 22, 0.24);
+    cursor: pointer;
+    pointer-events: all;
+  }
+
+  &__window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 211px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    position: relative;
+    margin-top: 407px;
+    pointer-events: all;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #f0f0f0;
+      transition: background-color 0.2s ease;
+    }
+  }
+
+  &__close-icon {
+    width: 20px;
+    height: 20px;
+    stroke: #161616;
+  }
+
+  &__content {
+    margin-bottom: 12px;
+  }
+
+  &__icon {
+    width: 59.33px;
+    height: 59.43px;
+    stroke: #161616;
+  }
+
+  &__message {
+    margin-top: 8px;
+    font-family: var(--manrope), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #161616;
+    text-align: center;
+  }
+}

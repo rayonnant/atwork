@@ -4,7 +4,7 @@ import manWebp from '@/assets/images/man.webp';
 import manPNG from '@/assets/images/man.png';
 import styles from './MainHeader.module.scss';
 
-export const MainHeader = () => {
+export const MainHeader: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={`${styles.header__wrapper} wrapper`}>
