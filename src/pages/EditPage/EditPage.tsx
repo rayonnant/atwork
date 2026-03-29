@@ -16,7 +16,7 @@ import { useFetchUsers } from '@/shared/hooks/useFetchUsers.ts';
 export const EditPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   useFetchUsers();
-  const { cards } = cardsStore();
+  const { cards, updateCard } = cardsStore();
   const user = cards.find(c => c.id === Number(id));
 
   const {
@@ -43,7 +43,7 @@ export const EditPage: React.FC = () => {
     }
   }, [user, setValue]);
 
-  if (!user) {
+  if (!user || user.isArchive) {
     return <NotFoundPage />;
   }
 
@@ -65,21 +65,14 @@ export const EditPage: React.FC = () => {
     }
 
     if (user) {
-      cardsStore.getState().setCards(
-        cards.map(c =>
-          c.id === user.id
-            ? {
-                ...c,
-                name: parsed.data.name,
-                username: parsed.data.nickname,
-                email: parsed.data.email,
-                city: parsed.data.city,
-                phone: parsed.data.phone,
-                companyName: parsed.data.companyName,
-              }
-            : c,
-        ),
-      );
+      updateCard(user.id, {
+        name: parsed.data.name,
+        username: parsed.data.nickname,
+        email: parsed.data.email,
+        city: parsed.data.city,
+        phone: parsed.data.phone,
+        companyName: parsed.data.companyName,
+      });
     }
 
     console.log(parsed.data);
