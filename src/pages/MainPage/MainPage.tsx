@@ -1,9 +1,8 @@
 import { cardsStore, type Card as CardType } from '@/store/cardsStore.ts';
 import styles from './MainPage.module.scss';
 import { Card } from '@components/Card';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { Loader } from '@components/Loader';
 
 const fetchUsers = async (): Promise<CardType[]> => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -26,10 +25,10 @@ const fetchUsers = async (): Promise<CardType[]> => {
 export const MainPage: React.FC = () => {
   const { cards, setCards } = cardsStore();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ['users'],
     queryFn: fetchUsers,
-    enabled: cards.length === 0,
+    staleTime: Infinity,
   });
 
   useEffect(() => {
@@ -37,24 +36,6 @@ export const MainPage: React.FC = () => {
       setCards(data);
     }
   }, [data, cards.length, setCards]);
-
-  if (isLoading && cards.length === 0) {
-    return (
-      <main className={styles.main}>
-        <Loader />
-      </main>
-    );
-  }
-
-  if (isError && cards.length === 0) {
-    return (
-      <main className={styles.main}>
-        <div className='wrapper'>
-          <p>Error loading users</p>
-        </div>
-      </main>
-    );
-  }
 
   const activeCards = cards.filter(item => !item.isArchive);
   const archivedCards = cards.filter(item => item.isArchive);

@@ -10,9 +10,9 @@ export const MainLayout: React.FC = () => {
       <MainHeader />
       <Suspense
         fallback={
-          <div>
+          <main style={{ backgroundColor: 'var(--color05)', minHeight: '100vh' }}>
             <Loader />
-          </div>
+          </main>
         }
       >
         <Outlet />
