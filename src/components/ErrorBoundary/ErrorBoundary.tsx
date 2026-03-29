@@ -1,4 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
+import styles from './ErrorBoundary.module.scss';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -29,11 +30,20 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <h2>Упс! Что-то пошло не так.</h2>
+        <main className={styles['error-boundary']}>
+          <div className='wrapper'>
+            <div className={styles['error-boundary__content']}>
+              <h2 className={styles['error-boundary__title']}>Упс! Что-то пошло не так.</h2>
 
-          <button onClick={() => window.location.reload()}>Попробовать снова</button>
-        </div>
+              <button
+                className={styles['error-boundary__button']}
+                onClick={() => window.location.reload()}
+              >
+                Попробовать снова
+              </button>
+            </div>
+          </div>
+        </main>
       );
     }
     return this.props.children;
