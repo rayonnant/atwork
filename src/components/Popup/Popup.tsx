@@ -5,7 +5,6 @@ type PopupProps = {
   isOpen: boolean;
   onClose: () => void;
 };
-//todo: сделать как в макете и повесить именно на успех формы
 export const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (!isOpen) return;

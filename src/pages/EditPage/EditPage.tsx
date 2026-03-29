@@ -49,7 +49,6 @@ export const EditPage: React.FC = () => {
 
   const handleSuccess = () => {
     setIsPopupVisible(true);
-    setTimeout(() => setIsPopupVisible(false), 3000);
   };
 
   const onSubmit = (data: unknown) => {
@@ -279,7 +278,7 @@ export const EditPage: React.FC = () => {
                 <span className={styles['profile-data__error']}>{errors.companyName.message}</span>
               )}
 
-              <button type='submit' className={styles['profile-data__submit']}>
+              <button type='submit' className={styles['profile-data__submit']} disabled={isPopupVisible}>
                 Сохранить
               </button>
             </form>
