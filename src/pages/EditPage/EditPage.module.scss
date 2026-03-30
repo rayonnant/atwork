@@ -1,4 +1,5 @@
 @use '../../index.scss' as *;
+
 .main {
   padding-left: 16px;
   padding-right: 16px;
@@ -24,11 +25,13 @@
     width: 343px;
     padding: 28px 28px 27.5px;
   }
+
   &__photo {
     border-radius: 8px;
     width: 287px;
     height: 187px;
     object-fit: cover;
+
     &-wrapper {
       border-radius: 8px;
     }
@@ -54,17 +57,22 @@
         margin-bottom: 0;
       }
 
-      &:hover {
-        color: var(--color-accent);
-        transition: color 0.3s ease-out;
+      @media (hover: hover) {
+        &:hover {
+          color: var(--color-accent);
+          transition: color 0.3s ease-out;
+        }
       }
 
       &--active {
         color: var(--color01);
         cursor: default;
         font-weight: 500;
-        &:hover {
-          color: var(--color01);
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--color01);
+          }
         }
       }
     }
@@ -78,6 +86,7 @@
     background-color: var(--color06);
     width: 343px;
   }
+
   &__title {
     font-family: var(--manrope), sans-serif;
     font-size: 1.5rem;
@@ -87,10 +96,12 @@
     border-bottom: 1px solid var(--color04);
     margin-top: -1px;
   }
+
   &__form {
     display: flex;
     flex-direction: column;
   }
+
   &__label {
     margin-top: 18.4px;
     font-family: var(--manrope), sans-serif;
@@ -99,12 +110,14 @@
     height: 22px;
     max-width: 420px;
   }
+
   &__input-wrapper {
     position: relative;
     max-width: 420px;
     display: flex;
     flex-direction: column;
   }
+
   &__input {
     margin-top: 11.5px;
     height: 42px;
@@ -118,6 +131,7 @@
     width: 100%;
     padding: 11.5px 40px 11.5px 13px;
   }
+
   &__clear-button {
     position: absolute;
     right: 8px;
@@ -136,11 +150,13 @@
       pointer-events: none;
     }
   }
+
   &__error {
     color: #ff4136;
     font-size: 0.75rem;
     margin-top: 4px;
   }
+
   &__submit {
     @include common-button;
     margin-top: 24px;
@@ -175,6 +191,7 @@
       padding: 40px;
       width: 360px;
     }
+
     &__photo {
       width: 280px;
       height: 485px;
@@ -202,22 +219,27 @@
       width: 100%;
       max-width: 760px;
     }
+
     &__input-wrapper {
       max-width: 420px;
     }
+
     &__label {
       font-size: 1.12rem;
       margin-top: 22.5px;
       height: 25px;
     }
+
     &__input {
       padding: 10px 40px 10px 14px;
       font-size: 1rem;
     }
+
     &__clear-button {
       right: 8px;
       bottom: 8px;
     }
+
     &__submit {
       margin-top: 31.5px;
     }

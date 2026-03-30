@@ -12,18 +12,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition:
-    background-color 0.3s ease-out,
-    color 0.3s ease-out;
+  transition: background-color 0.3s ease-out,
+  color 0.3s ease-out;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
-  &:hover {
-    background-color: var(--color05);
-    color: var(--color02);
-    transition:
-      background-color 0.3s ease-out,
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color05);
+      color: var(--color02);
+      transition: background-color 0.3s ease-out,
       color 0.3s ease-out;
+    }
   }
+
 
   @media (min-width: 1440px) {
     width: 170px;
@@ -84,12 +86,11 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    sans-serif;
+  font-family: system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  sans-serif;
   background-color: var(--color05);
 }
 
