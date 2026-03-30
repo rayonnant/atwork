@@ -1,7 +1,7 @@
 import styles from './EditPage.module.scss';
 import manWebp from '@/assets/images/man.webp';
 import manPNG from '@/assets/images/man.png';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { formSchema, type FormSchema } from '@/shared/utils/userFormSchema';
 import { BackButton } from '@components/BackButton/BackButton.tsx';
 import { Popup } from '@components/Popup';
@@ -24,11 +24,11 @@ export const EditPage: React.FC = () => {
     handleSubmit,
     setError,
     setValue,
-    watch,
+    control,
     formState: { errors },
   } = useForm<FormSchema>();
 
-  const watchAllFields = watch();
+  const watchAllFields = useWatch({ control });
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 

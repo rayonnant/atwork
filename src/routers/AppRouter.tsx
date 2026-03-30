@@ -1,22 +1,8 @@
 import { MainLayout } from '@/layouts/MainLayout';
-import { lazy, Suspense } from 'react';
+import { Loader } from '@/components/Loader';
+import { Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-
-const MainPage = lazy(() =>
-  import('../pages/MainPage/MainPage').then(module => ({
-    default: module.MainPage,
-  })),
-);
-const EditPage = lazy(() =>
-  import('../pages/EditPage/EditPage').then(module => ({
-    default: module.EditPage,
-  })),
-);
-const NotFoundPage = lazy(() =>
-  import('../pages/NotFoundPage/NotFoundPage').then(module => ({
-    default: module.NotFoundPage,
-  })),
-);
+import { MainPage, EditPage, NotFoundPage } from './lazyComponents';
 
 export const AppRouter = createBrowserRouter([
   {
@@ -25,7 +11,7 @@ export const AppRouter = createBrowserRouter([
       {
         path: '/',
         element: (
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loader />}>
             <MainPage />
           </Suspense>
         ),
@@ -33,7 +19,7 @@ export const AppRouter = createBrowserRouter([
       {
         path: '/edit/:id',
         element: (
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loader />}>
             <EditPage />
           </Suspense>
         ),
@@ -41,7 +27,7 @@ export const AppRouter = createBrowserRouter([
       {
         path: '*',
         element: (
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loader />}>
             <NotFoundPage />
           </Suspense>
         ),

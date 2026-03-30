@@ -3,16 +3,17 @@
   background-color: var(--color05);
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 32px;
 }
 .cards {
   &__title {
-    margin-top: 32px;
+    margin-top: 31px;
     border-bottom: 1px solid var(--color04);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-    height: 49px;
+    height: 50.5px;
     font-family: var(--manrope), sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
@@ -28,14 +29,14 @@
   }
 
   &__item {
-    margin-top: 16px;
+    margin-top: 15.5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 16px;
     background: var(--color06);
     border-radius: 16px;
     gap: 16px;
+    padding: 16px 16px 15px;
 
     &:nth-child(n + 3) {
       margin-top: 20px;
@@ -66,13 +67,14 @@
     cursor: default;
     width: 100%;
     max-width: 110px;
+    margin-top: -1px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   &__company {
-    margin-top: 4px;
+    margin-top: 1px;
     font-family: var(--manrope), sans-serif;
     font-size: 0.875rem;
     font-weight: 600;
@@ -86,7 +88,6 @@
   }
 
   &__city {
-    margin-top: 12px;
     font-family: var(--manrope), sans-serif;
     font-size: 0.625rem;
     font-weight: 600;
@@ -97,6 +98,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 12px;
   }
 
   &__section {
@@ -168,7 +170,8 @@
 @media (min-width: 1440px) {
   .cards {
     &__title {
-      margin-top: 40px;
+      margin-top: 39px;
+      margin-bottom: -0.5px;
     }
     &__list {
       column-gap: 40px;

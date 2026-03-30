@@ -29,7 +29,6 @@
     background-color: #fff;
     border-radius: 16px;
     position: relative;
-    margin-top: 418px;
     pointer-events: all;
     z-index: 10000;
   }
@@ -79,6 +78,22 @@
   }
 }
 
+@media (max-height: 700px) {
+  .popup {
+    &__window {
+      margin-top: 120px;
+    }
+  }
+}
+
+@media (min-height: 700px) {
+  .popup {
+    &__window {
+      margin-top: 418px;
+    }
+  }
+}
+
 @media (min-width: 1440px) {
   .popup {
     &__window {
@@ -89,10 +104,9 @@
     &__content {
       margin-top: 40px;
     }
-    &__meassage {
+    &__message {
       margin-top: 20px;
       font-size: 1.25rem;
     }
   }
-
 }

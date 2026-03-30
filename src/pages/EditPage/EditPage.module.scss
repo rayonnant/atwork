@@ -2,6 +2,7 @@
 .main {
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 32px;
 }
 
 .edit-page {
@@ -17,11 +18,11 @@
 
 .settings {
   &__section {
-    padding: 28px;
     border-radius: 16px;
     background-color: var(--color06);
     min-width: 343px;
     width: 343px;
+    padding: 28px 28px 27.5px;
   }
   &__photo {
     border-radius: 8px;
@@ -42,9 +43,9 @@
       font-family: var(--manrope), sans-serif;
       font-size: 0.875rem;
       font-weight: 500;
-      padding-bottom: 7px;
+      padding-bottom: 6.7px;
       border-bottom: 1px solid var(--color04);
-      margin-bottom: 17.8px;
+      margin-bottom: 18.3px;
       color: var(--color03);
       cursor: pointer;
       transition: color 0.3s ease-out;
@@ -61,7 +62,7 @@
       &--active {
         color: var(--color01);
         cursor: default;
-        font-weight: 600;
+        font-weight: 500;
         &:hover {
           color: var(--color01);
         }
@@ -91,7 +92,7 @@
     flex-direction: column;
   }
   &__label {
-    margin-top: 20px;
+    margin-top: 18.4px;
     font-family: var(--manrope), sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -105,7 +106,7 @@
     flex-direction: column;
   }
   &__input {
-    margin-top: 11px;
+    margin-top: 11.5px;
     height: 42px;
     font-family: var(--manrope), sans-serif;
     font-size: 0.875rem;
@@ -115,7 +116,7 @@
     border: 2px solid var(--color04);
     outline: none;
     width: 100%;
-    padding: 11.5px 40px 11.5px 15px;
+    padding: 11.5px 40px 11.5px 13px;
   }
   &__clear-button {
     position: absolute;
@@ -181,12 +182,16 @@
     }
 
     &__options {
-      margin-top: 40px;
+      margin-top: 39px;
 
       &__item {
         font-size: 1rem;
-        padding-bottom: 10px;
-        margin-bottom: 22.8px;
+        padding-bottom: 10.5px;
+        margin-bottom: 22.5px;
+
+        &--active {
+          font-weight: 600;
+        }
       }
     }
   }
@@ -214,7 +219,7 @@
       bottom: 8px;
     }
     &__submit {
-      margin-top: 32px;
+      margin-top: 31.5px;
     }
   }
 }

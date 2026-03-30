@@ -1,6 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import styles from './ErrorBoundary.module.scss';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -36,7 +36,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             <div className={styles['error-boundary__content']}>
               <h2 className={styles['error-boundary__title']}>Упс! Что-то пошло не так.</h2>
 
-              <Link to='/' className={styles['error-boundary__button']} >
+              <Link to='/' className={styles['error-boundary__button']}>
                 Домой
               </Link>
             </div>

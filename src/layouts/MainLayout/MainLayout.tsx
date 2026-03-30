@@ -8,13 +8,7 @@ export const MainLayout: React.FC = () => {
   return (
     <ErrorBoundary>
       <MainHeader />
-      <Suspense
-        fallback={
-          <main style={{ backgroundColor: 'var(--color05)', minHeight: '100vh' }}>
-            <Loader />
-          </main>
-        }
-      >
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </ErrorBoundary>

@@ -11,7 +11,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    max-width: 1140px;
+    //max-width: 1140px;
   }
 
   &__logo {
@@ -34,9 +34,9 @@
 
       &--favorite {
         width: 12.8px;
-        height: 11.74px;
+        height: auto;
         margin-left: 5.6px;
-        margin-right: 5.6px;
+        margin-right: 9.35px;
 
         path {
           stroke: var(--color02);
@@ -44,10 +44,10 @@
       }
 
       &--notification {
-        width: 12.4px;
-        height: 13.6px;
+        width: 13.1px;
+        height: auto;
         margin-left: 5.88px;
-        margin-right: 5.88px;
+        margin-right: 5.3px;
 
         path {
           fill: var(--color02);
@@ -65,6 +65,7 @@
 
     &-avatar {
       margin-left: 20px;
+      margin-right: 1px;
       width: 28px;
       height: 28px;
       border-radius: 50%;
@@ -84,6 +85,10 @@
   .header {
     height: 56px;
 
+    &__logo {
+      margin-left: 10px;
+    }
+
     &__nav {
       &-icon {
         display: block;
@@ -91,9 +96,11 @@
     }
 
     &__user {
+      margin-right: 14px;
       &-avatar {
         width: 20px;
         height: 20px;
+        margin-right: 0;
       }
 
       &-name {

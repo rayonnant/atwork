@@ -23,9 +23,13 @@
 
     &--small {
       display: block;
+      width: 10px;
+      height: 10px;
     }
     &--large {
       display: none;
+      width: 14px;
+      height: 14px;
     }
   }
 

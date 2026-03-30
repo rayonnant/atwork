@@ -10,6 +10,7 @@
   position: absolute;
   left: -15px;
   top: 36px;
+  z-index: 1000;
 
   &__item {
     color: var(--color01);
