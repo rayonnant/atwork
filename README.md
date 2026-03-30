@@ -4,7 +4,7 @@ React-приложение, получающее данные через API, д
 
 ## Демо
 
-🟢 **Live:** [https://#/](https://#.web.app/)
+🟢 **Live:** [https://at-work-test-assignment.web.app/](https://at-work-test-assignment.web.app/)
 
 ![Интерфейс](./src/assets/images/screen.webp)
 
@@ -18,6 +18,7 @@ React-приложение, получающее данные через API, д
 - **React Hook Form** + **Zod** — работа с формами и валидация
 - **Sass (SCSS Modules)** — стилизация
 - **React Router DOM** — навигация
+- **Firebase** — деплой
 
 ## Как запустить проект
 
