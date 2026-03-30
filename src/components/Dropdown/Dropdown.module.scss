@@ -25,9 +25,11 @@
     display: flex;
     align-items: center;
 
-    &:hover {
-      color: var(--color-accent);
-      transition: color 0.3s ease-out;
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-accent);
+        transition: color 0.3s ease-out;
+      }
     }
   }
 }
