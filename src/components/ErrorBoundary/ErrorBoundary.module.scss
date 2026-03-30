@@ -1,0 +1,35 @@
+@use '../../index.scss' as *;
+
+.error-boundary {
+  width: 100%;
+  min-height: 100vh;
+  @include common-error-container;
+
+  &__title {
+    font-family: var(--manrope), sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color01);
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    @include common-button;
+  }
+}
+
+@media (min-width: 1440px) {
+  .error-boundary {
+    padding-top: 40px;
+
+    &__content {
+      margin-top: 100px;
+    }
+
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+  }
+}
