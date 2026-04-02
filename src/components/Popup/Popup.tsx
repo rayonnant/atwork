@@ -5,7 +5,7 @@ type PopupProps = {
   isOpen: boolean;
   onClose: () => void;
 };
-export const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
+export function Popup({ isOpen, onClose }: PopupProps) {
   useEffect(() => {
     if (!isOpen) return;
 
@@ -21,7 +21,7 @@ export const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div className={`${styles.popup} ${styles['popup--visible']}`}>
+    <div className={styles.popup}>
       <div className={styles['popup__overlay']} onClick={onClose} />
 
       <section className={styles['popup__window']}>
@@ -61,4 +61,4 @@ export const Popup: React.FC<PopupProps> = ({ isOpen, onClose }) => {
       </section>
     </div>
   );
-};
+}

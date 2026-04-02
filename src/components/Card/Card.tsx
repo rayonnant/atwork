@@ -1,27 +1,24 @@
 import { useEffect, useRef } from 'react';
 import manWebp from '@/assets/images/man.webp';
 import manPNG from '@/assets/images/man.png';
-import styles from '@pages/MainPage/MainPage.module.scss';
+import styles from './Card.module.scss';
 import { dropdownStore } from '@/store/dropdownStore.ts';
+import type { Card as CardEntity } from '@/store/cardsStore.ts';
 import { DropdownButton } from '@components/DropdownButton';
 import { Dropdown } from '@components/Dropdown';
 
-interface CardProps {
-  id: number;
-  name?: string;
-  company?: string;
-  city?: string;
-  isArchive?: boolean;
-}
+export type CardProps = Pick<CardEntity, 'id' | 'name' | 'city' | 'isArchive'> & {
+  company: CardEntity['companyName'];
+};
 
-export const Card: React.FC<CardProps> = ({ id, name = '', company = '', city = '', isArchive = false }) => {
+export function Card({ id, name, company, city, isArchive }: CardProps) {
   const dropdownRef = useRef<HTMLUListElement>(null);
 
   const { openDropdownId, setOpenDropdownId } = dropdownStore();
 
   const isOpen = openDropdownId === id;
 
-  const handleDropdownButtonClick: () => void = () => {
+  const handleDropdownButtonClick = () => {
     if (isOpen) {
       setOpenDropdownId(null);
     } else {
@@ -43,19 +40,19 @@ export const Card: React.FC<CardProps> = ({ id, name = '', company = '', city = 
   }, [setOpenDropdownId]);
 
   return (
-    <li className={styles.cards__item}>
-      <picture className={styles['cards__photo-wrapper']}>
+    <li className={`${styles.card}${isArchive ? ` ${styles['card--archive']}` : ''}`}>
+      <picture className={styles['card__photo-wrapper']}>
         <source srcSet={manWebp} type='image/webp' />
-        <img src={manPNG} alt='Photo' className={styles.cards__photo} />
+        <img src={manPNG} alt='Photo' className={styles.card__photo} />
       </picture>
-      <div className={styles.cards__content}>
-        <span className={styles.cards__name} title={name}>
+      <div className={styles.card__content}>
+        <span className={styles.card__name} title={name}>
           {name}
         </span>
-        <span className={styles.cards__company} title={company}>
+        <span className={styles.card__company} title={company}>
           {company}
         </span>
-        <span className={styles.cards__city} title={city}>
+        <span className={styles.card__city} title={city}>
           {city}
         </span>
         <DropdownButton ariaLabel={`Опции для ${name} из ${company}`} onClick={handleDropdownButtonClick} cardId={id} />
@@ -63,4 +60,4 @@ export const Card: React.FC<CardProps> = ({ id, name = '', company = '', city = 
       </div>
     </li>
   );
-};
+}

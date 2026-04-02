@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { MainHeader } from '@components/MainHeader';
 
-export const MainLayout: React.FC = () => {
+export function MainLayout() {
   return (
     <ErrorBoundary>
       <MainHeader />
@@ -13,4 +13,4 @@ export const MainLayout: React.FC = () => {
       </Suspense>
     </ErrorBoundary>
   );
-};
+}
