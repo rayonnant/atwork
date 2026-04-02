@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { z } from 'zod';
 import { cardsStore, type Card as CardType } from '@/store/cardsStore.ts';
 
@@ -47,11 +47,26 @@ export const useFetchUsers = () => {
     staleTime: Infinity,
   });
 
+  const initialSyncDoneRef = useRef(false);
+
   useEffect(() => {
-    if (data && cards.length === 0) {
-      setCards(data);
+    const syncFromQueryIfNeeded = () => {
+      if (!data || initialSyncDoneRef.current) return;
+      const { cards: storedCards } = cardsStore.getState();
+      initialSyncDoneRef.current = true;
+      if (storedCards.length === 0) {
+        setCards(data);
+      }
+    };
+
+    if (cardsStore.persist.hasHydrated()) {
+      syncFromQueryIfNeeded();
+    } else {
+      return cardsStore.persist.onFinishHydration(() => {
+        syncFromQueryIfNeeded();
+      });
     }
-  }, [data, cards.length, setCards]);
+  }, [data, setCards]);
 
   return { cards };
 };
