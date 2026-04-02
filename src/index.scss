@@ -125,38 +125,38 @@ ol {
   padding: 0;
 }
 
-.wrapper {
+.layout-container {
   width: 100%;
   max-width: 344px;
   margin: 0 auto;
 }
 
 @media (min-width: 560px) {
-  .wrapper {
+  .layout-container {
     max-width: 526px;
   }
 }
 
 @media (min-width: 740px) {
-  .wrapper {
+  .layout-container {
     max-width: 708px;
   }
 }
 
 @media (min-width: 922px) {
-  .wrapper {
+  .layout-container {
     max-width: 890px;
   }
 }
 
 @media (min-width: 1105px) {
-  .wrapper {
+  .layout-container {
     max-width: 1072px;
   }
 }
 
 @media (min-width: 1440px) {
-  .wrapper {
+  .layout-container {
     max-width: 1160px;
   }
 }

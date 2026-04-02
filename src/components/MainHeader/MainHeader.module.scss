@@ -53,29 +53,29 @@
         }
       }
     }
-  }
 
-  &__user {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    cursor: default;
+    &-user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
 
-    &-avatar {
-      margin-left: 20px;
-      margin-right: 1px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+      &-avatar {
+        margin-left: 20px;
+        margin-right: 1px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
 
-    &-name {
-      font-size: 1rem;
-      font-family: var(--manrope), sans-serif;
-      color: var(--color02);
-      display: none;
+      &-name {
+        font-size: 1rem;
+        font-family: var(--manrope), sans-serif;
+        color: var(--color02);
+        display: none;
+      }
     }
   }
 }
@@ -92,18 +92,19 @@
       &-icon {
         display: block;
       }
-    }
 
-    &__user {
-      margin-right: 14px;
-      &-avatar {
-        width: 20px;
-        height: 20px;
-        margin-right: 0;
-      }
+      &-user {
+        margin-right: 14px;
 
-      &-name {
-        display: inline-block;
+        &-avatar {
+          width: 20px;
+          height: 20px;
+          margin-right: 0;
+        }
+
+        &-name {
+          display: inline-block;
+        }
       }
     }
   }

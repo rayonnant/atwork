@@ -79,27 +79,27 @@ export const EditPage: React.FC = () => {
   };
 
   return (
-    <main className={styles.main}>
-      <div className='wrapper'>
+    <main className={styles['edit-page']}>
+      <div className='layout-container'>
         <BackButton />
         <Popup onClose={() => setIsPopupVisible(false)} isOpen={isPopupVisible} />
         <div className={styles['edit-page__content']}>
-          <section className={styles['settings__section']}>
+          <section className={styles.settings}>
             <picture className={styles['settings__photo-wrapper']}>
               <source srcSet={manWebp} type='image/webp' />
               <img src={manPNG} alt='Photo' className={styles.settings__photo} />
             </picture>
             <ul className={styles['settings__options']}>
-              <li className={`${styles['settings__options__item']} ${styles['settings__options__item--active']}`}>
+              <li className={`${styles['settings__option']} ${styles['settings__option--active']}`}>
                 Данные профиля
               </li>
-              <li className={styles['settings__options__item']}>Рабочее пространство</li>
-              <li className={styles['settings__options__item']}>Приватность</li>
-              <li className={styles['settings__options__item']}>Безопасность</li>
+              <li className={styles['settings__option']}>Рабочее пространство</li>
+              <li className={styles['settings__option']}>Приватность</li>
+              <li className={styles['settings__option']}>Безопасность</li>
             </ul>
           </section>
 
-          <section className={styles['profile-data__section']}>
+          <section className={styles['profile-data']}>
             <h2 className={styles['profile-data__title']}>Данные профиля</h2>
             <form onSubmit={handleSubmit(onSubmit)} noValidate className={styles['profile-data__form']}>
               <label htmlFor='name' className={styles['profile-data__label']}>

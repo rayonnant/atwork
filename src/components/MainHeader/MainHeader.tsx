@@ -7,7 +7,7 @@ import styles from './MainHeader.module.scss';
 export const MainHeader: React.FC = () => {
   return (
     <header className={styles.header}>
-      <div className={`${styles.header__wrapper} wrapper`}>
+      <div className={`${styles.header__wrapper} layout-container`}>
         <Link to='/'>
           <img src={logoImage} alt='Logo At-Work' className={styles.header__logo} />
         </Link>
@@ -44,12 +44,12 @@ export const MainHeader: React.FC = () => {
             </li>
 
             <li className={styles['header__nav-item']}>
-              <span className={styles['header__user']}>
+              <span className={styles['header__nav-user']}>
                 <picture>
                   <source srcSet={manWebp} type='image/webp' />
-                  <img src={manPNG} alt='Avatar' className={styles['header__user-avatar']} />
+                  <img src={manPNG} alt='Avatar' className={styles['header__nav-user-avatar']} />
                 </picture>
-                <span className={styles['header__user-name']}>Ivan1234</span>
+                <span className={styles['header__nav-user-name']}>Ivan1234</span>
               </span>
             </li>
           </ul>

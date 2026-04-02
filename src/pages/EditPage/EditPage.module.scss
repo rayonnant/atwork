@@ -1,12 +1,10 @@
 @use '../../index.scss' as *;
 
-.main {
+.edit-page {
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 32px;
-}
 
-.edit-page {
   &__content {
     margin-top: 33px;
     display: flex;
@@ -18,13 +16,11 @@
 }
 
 .settings {
-  &__section {
-    border-radius: 16px;
-    background-color: var(--color06);
-    min-width: 343px;
-    width: 343px;
-    padding: 28px 28px 27.5px;
-  }
+  border-radius: 16px;
+  background-color: var(--color06);
+  min-width: 343px;
+  width: 343px;
+  padding: 28px 28px 27.5px;
 
   &__photo {
     border-radius: 8px;
@@ -41,38 +37,38 @@
     margin-top: 23px;
     display: flex;
     flex-direction: column;
+  }
 
-    &__item {
-      font-family: var(--manrope), sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding-bottom: 6.7px;
-      border-bottom: 1px solid var(--color04);
-      margin-bottom: 18.3px;
-      color: var(--color03);
-      cursor: pointer;
-      transition: color 0.3s ease-out;
+  &__option {
+    font-family: var(--manrope), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding-bottom: 6.7px;
+    border-bottom: 1px solid var(--color04);
+    margin-bottom: 18.3px;
+    color: var(--color03);
+    cursor: pointer;
+    transition: color 0.3s ease-out;
 
-      &:last-child {
-        margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-accent);
+        transition: color 0.3s ease-out;
       }
+    }
+
+    &--active {
+      color: var(--color01);
+      cursor: default;
+      font-weight: 500;
 
       @media (hover: hover) {
         &:hover {
-          color: var(--color-accent);
-          transition: color 0.3s ease-out;
-        }
-      }
-
-      &--active {
-        color: var(--color01);
-        cursor: default;
-        font-weight: 500;
-
-        @media (hover: hover) {
-          &:hover {
-            color: var(--color01);
-          }
+          color: var(--color01);
         }
       }
     }
@@ -80,12 +76,10 @@
 }
 
 .profile-data {
-  &__section {
-    padding: 28px;
-    border-radius: 16px;
-    background-color: var(--color06);
-    width: 343px;
-  }
+  padding: 28px;
+  border-radius: 16px;
+  background-color: var(--color06);
+  width: 343px;
 
   &__title {
     font-family: var(--manrope), sans-serif;
@@ -187,10 +181,8 @@
   }
 
   .settings {
-    &__section {
-      padding: 40px;
-      width: 360px;
-    }
+    padding: 40px;
+    width: 360px;
 
     &__photo {
       width: 280px;
@@ -200,25 +192,23 @@
 
     &__options {
       margin-top: 39px;
+    }
 
-      &__item {
-        font-size: 1rem;
-        padding-bottom: 10.5px;
-        margin-bottom: 22.5px;
+    &__option {
+      font-size: 1rem;
+      padding-bottom: 10.5px;
+      margin-bottom: 22.5px;
 
-        &--active {
-          font-weight: 600;
-        }
+      &--active {
+        font-weight: 600;
       }
     }
   }
 
   .profile-data {
-    &__section {
-      padding: 40px;
-      width: 100%;
-      max-width: 760px;
-    }
+    padding: 40px;
+    width: 100%;
+    max-width: 760px;
 
     &__input-wrapper {
       max-width: 420px;

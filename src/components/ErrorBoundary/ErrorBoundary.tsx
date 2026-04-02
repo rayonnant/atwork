@@ -32,7 +32,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     if (this.state.hasError) {
       return (
         <main className={styles['error-boundary']}>
-          <div className='wrapper'>
+          <div className='layout-container'>
             <div className={styles['error-boundary__content']}>
               <h2 className={styles['error-boundary__title']}>Упс! Что-то пошло не так.</h2>
 
