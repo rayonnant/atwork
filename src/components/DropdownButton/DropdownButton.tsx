@@ -7,11 +7,11 @@ interface DropdownButtonProps {
   cardId: number;
 }
 
-export const DropdownButton: React.FC<DropdownButtonProps> = ({
+export function DropdownButton({
   ariaLabel = 'Открыть опции',
-  onClick = undefined,
+  onClick,
   cardId,
-}) => {
+}: DropdownButtonProps) {
   const { openDropdownId } = dropdownStore();
   const isOpen: boolean = openDropdownId === cardId;
 
@@ -54,4 +54,4 @@ export const DropdownButton: React.FC<DropdownButtonProps> = ({
       </svg>
     </button>
   );
-};
+}

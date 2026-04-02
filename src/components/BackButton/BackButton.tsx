@@ -1,7 +1,7 @@
 import styles from './BackButton.module.scss';
 import { Link } from 'react-router-dom';
 
-export const BackButton: React.FC = () => {
+export function BackButton() {
   return (
     <Link to='/' className={styles['back-button']} aria-label='Вернуться назад'>
       <span className={styles['back-button__icon-container']}>
@@ -37,4 +37,4 @@ export const BackButton: React.FC = () => {
       <span className={styles['back-button__text']}>Назад</span>
     </Link>
   );
-};
+}

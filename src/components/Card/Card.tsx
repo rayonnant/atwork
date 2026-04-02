@@ -3,25 +3,22 @@ import manWebp from '@/assets/images/man.webp';
 import manPNG from '@/assets/images/man.png';
 import styles from './Card.module.scss';
 import { dropdownStore } from '@/store/dropdownStore.ts';
+import type { Card as CardEntity } from '@/store/cardsStore.ts';
 import { DropdownButton } from '@components/DropdownButton';
 import { Dropdown } from '@components/Dropdown';
 
-interface CardProps {
-  id: number;
-  name?: string;
-  company?: string;
-  city?: string;
-  isArchive?: boolean;
-}
+export type CardProps = Pick<CardEntity, 'id' | 'name' | 'city' | 'isArchive'> & {
+  company: CardEntity['companyName'];
+};
 
-export const Card: React.FC<CardProps> = ({ id, name = '', company = '', city = '', isArchive = false }) => {
+export function Card({ id, name, company, city, isArchive }: CardProps) {
   const dropdownRef = useRef<HTMLUListElement>(null);
 
   const { openDropdownId, setOpenDropdownId } = dropdownStore();
 
   const isOpen = openDropdownId === id;
 
-  const handleDropdownButtonClick: () => void = () => {
+  const handleDropdownButtonClick = () => {
     if (isOpen) {
       setOpenDropdownId(null);
     } else {
@@ -63,4 +60,4 @@ export const Card: React.FC<CardProps> = ({ id, name = '', company = '', city = 
       </div>
     </li>
   );
-};
+}

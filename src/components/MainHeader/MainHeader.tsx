@@ -4,7 +4,7 @@ import manWebp from '@/assets/images/man.webp';
 import manPNG from '@/assets/images/man.png';
 import styles from './MainHeader.module.scss';
 
-export const MainHeader: React.FC = () => {
+export function MainHeader() {
   return (
     <header className={styles.header}>
       <div className={`${styles.header__wrapper} layout-container`}>
@@ -57,4 +57,4 @@ export const MainHeader: React.FC = () => {
       </div>
     </header>
   );
-};
+}

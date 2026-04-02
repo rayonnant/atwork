@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import styles from './Dropdown.module.scss';
 import { dropdownStore } from '@/store/dropdownStore';
 import { cardsStore } from '@/store/cardsStore';
@@ -70,3 +70,5 @@ export const Dropdown = forwardRef<HTMLUListElement, DropdownProps>(({ isArchive
     </ul>
   );
 });
+
+Dropdown.displayName = 'Dropdown';

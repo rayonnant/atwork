@@ -1,7 +1,8 @@
 import styles from './EditPage.module.scss';
 import manWebp from '@/assets/images/man.webp';
 import manPNG from '@/assets/images/man.png';
-import { useForm, useWatch } from 'react-hook-form';
+import { type SubmitHandler, useForm, useWatch } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { formSchema, type FormSchema } from '@/shared/utils/userFormSchema';
 import { BackButton } from '@components/BackButton/BackButton.tsx';
 import { Popup } from '@components/Popup';
@@ -13,7 +14,7 @@ import { useEffect } from 'react';
 import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import { useFetchUsers } from '@/shared/hooks/useFetchUsers.ts';
 
-export const EditPage: React.FC = () => {
+export function EditPage() {
   const { id } = useParams<{ id: string }>();
   useFetchUsers();
   const { cards, updateCard } = cardsStore();
@@ -22,11 +23,12 @@ export const EditPage: React.FC = () => {
   const {
     register,
     handleSubmit,
-    setError,
     setValue,
     control,
     formState: { errors },
-  } = useForm<FormSchema>();
+  } = useForm<FormSchema>({
+    resolver: zodResolver(formSchema),
+  });
 
   const watchAllFields = useWatch({ control });
 
@@ -51,30 +53,19 @@ export const EditPage: React.FC = () => {
     setIsPopupVisible(true);
   };
 
-  const onSubmit = (data: unknown) => {
-    const parsed = formSchema.safeParse(data);
-    if (!parsed.success) {
-      parsed.error.errors.forEach(err => {
-        setError(err.path[0] as keyof FormSchema, {
-          type: 'manual',
-          message: err.message,
-        });
-      });
-      return;
-    }
-
+  const onSubmit: SubmitHandler<FormSchema> = data => {
     if (user) {
       updateCard(user.id, {
-        name: parsed.data.name,
-        username: parsed.data.nickname,
-        email: parsed.data.email,
-        city: parsed.data.city,
-        phone: parsed.data.phone,
-        companyName: parsed.data.companyName,
+        name: data.name,
+        username: data.nickname,
+        email: data.email,
+        city: data.city,
+        phone: data.phone,
+        companyName: data.companyName,
       });
     }
 
-    console.log(parsed.data);
+    console.log(data);
     handleSuccess();
   };
 
@@ -287,4 +278,4 @@ export const EditPage: React.FC = () => {
       </div>
     </main>
   );
-};
+}

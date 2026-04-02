@@ -2,7 +2,7 @@ import { Card } from '@components/Card';
 import styles from './MainPage.module.scss';
 import { useFetchUsers } from '@/shared/hooks/useFetchUsers.ts';
 
-export const MainPage: React.FC = () => {
+export function MainPage() {
   const { cards } = useFetchUsers();
 
   const activeCards = cards.filter(item => !item.isArchive);
@@ -45,4 +45,4 @@ export const MainPage: React.FC = () => {
       </div>
     </main>
   );
-};
+}

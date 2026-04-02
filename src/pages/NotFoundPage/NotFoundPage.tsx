@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './NotFoundPage.module.scss';
 
-export const NotFoundPage: React.FC = () => {
+export function NotFoundPage() {
   return (
     <main className={styles['not-found']}>
       <div className='layout-container'>
@@ -15,4 +15,4 @@ export const NotFoundPage: React.FC = () => {
       </div>
     </main>
   );
-};
+}
